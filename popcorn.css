@@ -1,0 +1,60 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#pop {
+    width: 800px;
+    height: 90%;
+    /* background: paleturquoise; */
+    position: relative;
+    margin: auto;
+}
+
+button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.popcar {
+    display: inline-block;
+    width: 500px;
+    margin: auto;
+}
+
+.popcar img {
+    width: 100%;
+    margin-left: 25%;
+}
+
+#corn {
+    display: inline-block;
+    position: absolute;
+    width: 280px;
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+#corn img {
+    max-width: 300px;
+}
+
+#popcorn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: peru;
+    display: none;
+}
