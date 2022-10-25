@@ -53,16 +53,6 @@
 
         }
 
-        // 遊戲時間結束
-        if (countdown === 0) {
-            // 停止倒數
-            clearInterval(timer)
-            // 爆米花清空
-            $('.popcorn').remove()
-            $('#btn-start').attr('disabled', false)
-        }
-
-
         // 開始遊戲
         $('#btn-start').click(function () {
             // 停用按鈕
@@ -112,6 +102,14 @@
                     }
                 })
 
+                // 遊戲時間結束
+                if (countdown === 0) {
+                    // 停止倒數
+                    clearInterval(timer)
+                    // 爆米花清空
+                    $('.popcorn').remove()
+                    $('#btn-start').attr('disabled', false)
+                }
 
             }, 1000);
         })
