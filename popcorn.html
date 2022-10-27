@@ -42,16 +42,11 @@
 
         // 滑鼠點擊次數
         let clicknum = 0
+
         // 最高分玩家紀錄提取
         const heightscore = localStorage.popcorngame ? JSON.parse(localStorage.popcorngame) : { name: '', score: 0 }
         $('#text-heightscorename').text(heightscore.name)
         $('#text-heightscore').text(heightscore.score)
-
-        // 爆米花掉落
-        function popShow(popcorn) {
-
-
-        }
 
         // 開始遊戲
         $('#btn-start').click(function () {
@@ -69,39 +64,6 @@
                 countdown--
                 $('#text-time').text(countdown)
 
-                // 點玉米炸爆米花
-                $('#corn').click(function () {
-                    // 圖片變換
-                    $('#corn img').attr("src", "./popcorn/cornbig.gif")
-                    //  時間停止跳出
-                    if (countdown === 0) {
-                        $('#corn img').attr('src', './popcorn/cornbig02.png')
-                        return
-                    }
-                    // 炸爆米花，滑鼠點擊次數計算，大於10下，可以產生1顆爆米花(score)
-                    clicknum++
-                    console.log(clicknum)
-                    // 點擊次數要除10整除(10的倍數)
-                    if (clicknum % 10 == 0) {
-                        score++
-                        $('#text-socre').text(score)
-                        console.log(score)
-                        // 每當分數+1，我的爆米花圖片就+1
-                        for (let i = 0; i < score; i++) {
-                            const top = Math.round(Math.random() * 100) + '%'
-                            const left = Math.round(Math.random() * 100) + '%'
-                            const popcorn = $(`
-                            <img src="./popcorn/popcorn.png" 
-                            class="popcorn" 
-                            style="width: 50px;height: 50px;
-                            top: ${top};left: ${left};
-                            position:absolute
-                            ">`)
-                            $('.popcar').append(popcorn)
-                        }
-                    }
-                })
-
                 // 遊戲時間結束
                 if (countdown === 0) {
                     // 停止倒數
@@ -110,9 +72,52 @@
                     $('.popcorn').remove()
                     $('#btn-start').attr('disabled', false)
                 }
-
             }, 1000);
         })
+
+
+        // 當按鈕停用可以點擊爆米花
+        if ($('#btn-start').attr('disabled') !== false) {
+            // 點玉米炸爆米花
+            $('#corn').click(function () {
+                // 圖片變換
+                $('#corn img').attr("src", "./popcorn/cornbig.gif")
+                //  時間停止跳出
+                if (countdown === 0) {
+                    // clicknum = 0
+                    $('#corn img').attr('src', './popcorn/cornbig02.png')
+                    return
+                }
+                // 炸爆米花，滑鼠點擊次數計算，大於10下，可以產生1顆爆米花(score)
+                clicknum++
+                console.log('滑鼠次數' + clicknum)
+                // 點擊次數要除10整除(10的倍數) 每點10次+1分
+                if (clicknum % 10 == 0) {
+                    score++
+                    $('#text-socre').text(score)
+                    console.log('產生爆米花' + score)
+                }
+                // 爆米花出現
+                const popcornTop = Math.round(Math.random() * 100) + '%'
+                const popcornLeft = Math.round(Math.random() * 100) + '%'
+                //爆米花出現
+                const popcorn = $(`
+                                <img src="./popcorn/popcorn.png" 
+                                class="popcorn" 
+                                style="width: 50px;height: 50px;
+                                top: ${popcornTop};left: ${popcornLeft};
+                                position:absolute
+                                ">`)
+                // 每當分數+1，我的爆米花圖片就+1
+                for (let i = 0; i < score; i++) {
+                    $('.popcar').append(popcorn)
+                    popcorn.animate({
+                        top: `+=500px`
+                    }, 1000)
+                }
+            })
+        }
+
     </script>
 </body>
 
