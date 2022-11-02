@@ -5,30 +5,45 @@ body {
     margin: 0;
 }
 
+body {
+    background: url(./popcorn/Fondo-retro.jpg) no-repeat center / 100%;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.down {
+    z-index: 1;
+}
+
 #pop {
     width: 800px;
-    height: 90%;
+    height: 800px;
     position: relative;
+    top: 25%;
+    left: 30%;
+    transform: translate(-50%, -50%);
     margin: auto;
 }
 
-button {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-}
 
 .popcar {
     /* background: paleturquoise; */
     display: inline-block;
     width: 800px;
-    height: 1200px;
+    height: 600px;
     margin: auto;
+    padding-left: 10%;
+    z-index: 1;
 }
 
 .popcar img {
-    width: 800px;
+    height: 800px;
 }
 
 #corn {
@@ -36,13 +51,51 @@ button {
     position: absolute;
     width: 280px;
     height: 230px;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
-
+    z-index: 2;
 }
 
 #corn img {
-    max-width: 300px;
+    height: 200px;
+}
+
+#textInfo {
+    padding: 100px;
+    width: 200px;
+    height: 200px;
+    line-height: 1.5;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    /* display: inline-block; */
+    z-index: 3;
+    /* background: rgba(255, 255, 255, 0.5); */
+}
+
+#text {
+    width: 200px;
+    height: 200px;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid #000;
+    position: relative;
+    top: 35%;
+    left: 0;
+    transform: translate(0, -10px);
+    border-radius: 20px;
+    z-index: 1;
+    background: #fff;
+}
+
+#btn-start {
+    position: absolute;
+    left: 50%;
+    bottom: 35%;
+    transform: translateX(-50%);
+    z-index: 3;
 }
