@@ -21,8 +21,13 @@
   </div>
 
   <div id="textInfo">
-    <h3>遊戲說明</h3>
-    <span class="textP">魔法爆米花車車現身<br>炸越多爆米花<br>誰就是爆米花大師！</span>
+    <h2>遊戲說明</h2>
+    <span>
+      魔法爆米花車車現身！<br>
+      <span class="textP">點擊玉米可炸出爆米花</span><br>
+      炸越多爆米花<br>
+      誰就是爆米花大師！
+    </span>
   </div>
   <!-- 開始按鈕 -->
   <button id="btn-start">開始</button>
@@ -67,7 +72,7 @@
       // 設定分數，時間
       score = 0
       $('#text-socre').text(score)
-      countdown = 5
+      countdown = 10
       $('#text-time').text(countdown)
 
       // 遊戲時間
@@ -85,8 +90,38 @@
           // 可以再次點擊開始按鈕
           $('#btn-start').attr('disabled', false)
           $('#btn-start').show()
+
+          if (score > heightscore.score) {
+            Swal.fire({
+              icon: 'info',
+              title: '時間到',
+              text: `你爆了 ${score} 顆玉米`,
+              inputPlaceholder: '請輸入名字',
+              input: 'text',
+              inputAttributes: {
+                required: true
+              },
+              validationMessage: '名稱必填',
+              allowOutsideClick: false,
+              allowEscapeKey: false
+            }).then(result => {
+              heightscore.score = score
+              heightscore.name = result.value
+              $('#text-heightscorename').text(heightscore.name)
+              $('#text-heightscore').text(heightscore.score)
+              localStorage.popcorngame = JSON.stringify(heightscore)
+            })
+          } else {
+            Swal.fire({
+              icon: 'info',
+              title: '時間到',
+              text: `你得到${score}分`,
+              confirmButtonColor: '#d9463e',
+              iconColor: 'rgba(1, 89, 101)',
+            })
+          }
         }
-      }, 1000);
+      }, 1000)
     })
 
 

@@ -90,12 +90,24 @@ body {
   /* background: rgba(255, 255, 255, 0.5); */
 }
 
+#textInfo h2 {
+  color: rgba(1, 89, 101);
+}
+
+#textInfo span {
+  color: rgba(1, 89, 101);
+}
+
+#textInfo .textP {
+  color: #d9463e;
+}
+
 #text {
   width: 300px;
   height: 200px;
-  line-height: 2.3;
+  line-height: 1.7;
   text-align: center;
-  position: relative;
+  position: fixed;
   top: 35%;
   left: 100px;
   transform: translate(0, -10px);
@@ -103,6 +115,7 @@ body {
   z-index: 1;
   color: rgba(1, 89, 101);
   background: rgba(242, 233, 192, 0.5);
+  box-shadow: 0 0 15px rgba(1, 89, 101);
 }
 
 #btn-start {
