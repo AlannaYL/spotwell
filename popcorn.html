@@ -22,7 +22,7 @@
 
   <div id="textInfo">
     <h3>遊戲說明</h3>
-    <span>魔法爆米花車車現身<br>炸越多爆米花<br>誰就是爆米花大師！</span>
+    <span class="textP">魔法爆米花車車現身<br>炸越多爆米花<br>誰就是爆米花大師！</span>
   </div>
   <!-- 開始按鈕 -->
   <button id="btn-start">開始</button>
@@ -128,7 +128,7 @@
         // 每當分數+1，我的爆米花圖片就+1
         for (let i = 0; i < score; i++) {
           $('.popcar').append(popcorn)
-          popcorn.animate({ top: `-=200px` }, 100).animate({ top: `+=500px` }, 1000)
+          popcorn.animate({ top: `-=200px` }, 100).animate({ top: `+=300px` }, 1000)
         }
       })
     }
